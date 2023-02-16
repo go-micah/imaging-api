@@ -11,7 +11,7 @@ Globals:
     - image~1png
   Function:
     Timeout: 15
-    MemorySize: 256
+    MemorySize: 2048
 
 Resources:
   DistFunction:
