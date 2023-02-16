@@ -5,6 +5,7 @@ import (
 	"encoding/base64"
 	"image/png"
 	"net/http"
+	"strconv"
 
 	"github.com/aws/aws-lambda-go/events"
 	"github.com/aws/aws-lambda-go/lambda"
@@ -13,7 +14,27 @@ import (
 
 func handler(request events.APIGatewayProxyRequest) (events.APIGatewayProxyResponse, error) {
 
-	img := imaging.Dist(512, 512)
+	width := request.QueryStringParameters["width"]
+	if len(width) == 0 {
+		width = "512"
+	}
+
+	height := request.QueryStringParameters["height"]
+	if len(height) == 0 {
+		height = "512"
+	}
+
+	widthInt, _ := strconv.Atoi(width)
+	if widthInt > 1024 {
+		widthInt = 1024
+	}
+
+	heightInt, _ := strconv.Atoi(height)
+	if heightInt > 1024 {
+		heightInt = 1024
+	}
+
+	img := imaging.Dist(widthInt, heightInt)
 
 	buf := new(bytes.Buffer)
 	if err := png.Encode(buf, img); err != nil {

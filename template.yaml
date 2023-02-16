@@ -50,6 +50,9 @@ Resources:
           Properties:
             Path: /dist
             Method: GET
+            RequestParameters:
+              - method.request.querystring.myqueryparam:
+                  Required: true
       Environment: # More info about Env Vars: https://github.com/awslabs/serverless-application-model/blob/master/versions/2016-10-31.md#environment-object
         Variables:
           PARAM1: VALUE
