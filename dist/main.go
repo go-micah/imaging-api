@@ -12,6 +12,13 @@ import (
 	"github.com/go-micah/imaging"
 )
 
+func Abs(x int) int {
+	if x < 0 {
+		return -x
+	}
+	return x
+}
+
 func handler(request events.APIGatewayProxyRequest) (events.APIGatewayProxyResponse, error) {
 
 	width := request.QueryStringParameters["width"]
@@ -24,12 +31,30 @@ func handler(request events.APIGatewayProxyRequest) (events.APIGatewayProxyRespo
 		height = "512"
 	}
 
-	widthInt, _ := strconv.Atoi(width)
+	widthInt, err := strconv.Atoi(width)
+	if err != nil {
+		return events.APIGatewayProxyResponse{
+			StatusCode: http.StatusBadRequest,
+			Body:       "{\"message\":\"invalid width\"}",
+		}, nil
+	}
+
+	widthInt = Abs(widthInt)
+
 	if widthInt > 1024 {
 		widthInt = 1024
 	}
 
-	heightInt, _ := strconv.Atoi(height)
+	heightInt, err := strconv.Atoi(height)
+	if err != nil {
+		return events.APIGatewayProxyResponse{
+			StatusCode: http.StatusBadRequest,
+			Body:       "{\"message\":\"invalid height\"}",
+		}, nil
+	}
+
+	heightInt = Abs(heightInt)
+
 	if heightInt > 1024 {
 		heightInt = 1024
 	}
@@ -38,7 +63,10 @@ func handler(request events.APIGatewayProxyRequest) (events.APIGatewayProxyRespo
 
 	buf := new(bytes.Buffer)
 	if err := png.Encode(buf, img); err != nil {
-		return events.APIGatewayProxyResponse{}, err
+		return events.APIGatewayProxyResponse{
+			StatusCode: http.StatusInternalServerError,
+			Body:       "{\"message\":\"error encoding the image\"}",
+		}, nil
 	}
 
 	b64img := base64.StdEncoding.EncodeToString(buf.Bytes())
