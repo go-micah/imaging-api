@@ -3,8 +3,8 @@ github.com/aws/aws-lambda-go v1.36.1/go.mod h1:jwFe2KmMsHmffA1X2R09hH6lFzJQxzI8q
 github.com/davecgh/go-spew v1.1.0/go.mod h1:J7Y8YcW2NihsgmVo/mv3lAwl/skON4iLHjSsI+c5H38=
 github.com/davecgh/go-spew v1.1.1 h1:vj9j/u1bqnvCEfJOwUhtlOARqs3+rkHYY13jYWTU97c=
 github.com/davecgh/go-spew v1.1.1/go.mod h1:J7Y8YcW2NihsgmVo/mv3lAwl/skON4iLHjSsI+c5H38=
-github.com/go-micah/imaging v0.0.1 h1:COXj9POLX/S/FPZ0YLgJop1RVCjgH0c6evvqPXnXLxE=
-github.com/go-micah/imaging v0.0.1/go.mod h1:fkalKaRoC0G3QNo8dav/coxM5vVY9cNUR10Zqx6UXy0=
+github.com/go-micah/imaging v0.0.2 h1:+pVDgfcM1rJQ7ufAIUMZ4bGjtc4HJjZInmDEk8Xuvd4=
+github.com/go-micah/imaging v0.0.2/go.mod h1:fkalKaRoC0G3QNo8dav/coxM5vVY9cNUR10Zqx6UXy0=
 github.com/pmezard/go-difflib v1.0.0 h1:4DBwDE0NGyQoBHbLQYPwSUPoCMWR5BEzIk/f1lZbAQM=
 github.com/pmezard/go-difflib v1.0.0/go.mod h1:iKH77koFhYxTK1pcRnkKkqfTogsbg7gZNVY4sRDYZ/4=
 github.com/stretchr/objx v0.1.0/go.mod h1:HFkY916IF+rwdDfMAkV7OtwuqBVzrE8GR6GFx+wExME=
