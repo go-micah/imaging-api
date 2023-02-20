@@ -10,14 +10,8 @@ import (
 	"github.com/aws/aws-lambda-go/events"
 	"github.com/aws/aws-lambda-go/lambda"
 	"github.com/go-micah/imaging"
+	"github.com/go-micah/imaging-api/utils"
 )
-
-func Abs(x int) int {
-	if x < 0 {
-		return -x
-	}
-	return x
-}
 
 func handler(request events.APIGatewayProxyRequest) (events.APIGatewayProxyResponse, error) {
 
@@ -39,7 +33,7 @@ func handler(request events.APIGatewayProxyRequest) (events.APIGatewayProxyRespo
 		}, nil
 	}
 
-	widthInt = Abs(widthInt)
+	widthInt = utils.Abs(widthInt)
 
 	if widthInt > 1024 {
 		widthInt = 1024
@@ -53,7 +47,7 @@ func handler(request events.APIGatewayProxyRequest) (events.APIGatewayProxyRespo
 		}, nil
 	}
 
-	heightInt = Abs(heightInt)
+	heightInt = utils.Abs(heightInt)
 
 	if heightInt > 1024 {
 		heightInt = 1024
