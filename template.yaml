@@ -19,7 +19,7 @@ Resources:
     Metadata:
       BuildMethod: go1.x
     Properties:
-      CodeUri: dist/
+      CodeUri: ./cmd/functions/dist/
       Handler: bootstrap
       Runtime: provided.al2
       Architectures:
@@ -38,7 +38,7 @@ Resources:
     Metadata:
       BuildMethod: go1.x
     Properties:
-      CodeUri: steps/
+      CodeUri: ./cmd/functions/steps/
       Handler: bootstrap
       Runtime: provided.al2
       Architectures:
